@@ -1,4 +1,4 @@
-package com.invertase.rnfirebasestarter;
+package com.bradandjason.potroast;
 
 import android.app.Application;
 
