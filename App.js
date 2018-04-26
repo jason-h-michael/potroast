@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native';
+import * as axios from 'axios';
 
 import firebase from 'react-native-firebase';
 
@@ -7,12 +8,17 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      // firebase things?
+      backendMsg: 'have not heard from firebase'
     };
   }
 
   componentDidMount() {
-    // firebase things?
+    this.callbackend();
+  }
+
+  callbackend() {
+    axios.get('https://us-central1-potroast-ede5c.cloudfunctions.net/helloWorld')
+      .then(response => this.setState({backendMsg: response.data.nowHearThis}))
   }
 
   render() {
@@ -21,7 +27,8 @@ export default class App extends React.Component {
         <View style={styles.container}>
         <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]} />
         <Text style={styles.welcome}>
-          Welcome to the React Native{'\n'}Firebase starter project!
+          From the UI: We heart Potroast!
+          From the API: {this.state.backendMsg}
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js
@@ -34,7 +41,7 @@ export default class App extends React.Component {
         ) : (
           <Text style={styles.instructions}>
             Double tap R on your keyboard to reload,{'\n'}
-            Cmd+M or shake for dev menu
+            Cmd+M or shake for dev menu, sucka
           </Text>
         )}
         <View style={styles.modules}>

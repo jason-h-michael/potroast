@@ -1,3 +1,28 @@
+# PotRoast project instructions
+
+Instructions for Android:
+1. Clone the repo.
+2. Run `yarn`
+3. Create a `local.properties` file in `/android`
+  a. Add this single line to the file, `sdk.dir = /Users/jmichael/Library/Android/sdk` replacing USERNAME with your username.
+4. Execute the following command, replacing USERNAME with your username, `export PATH="/Users/USERNAME/Library/Android/sdk/platform-tools":$PATH`
+5. Connect Android device via USB
+  a. Turn on Developer Tools
+  b. Enable USB debugging
+6. In bash terminal at root of project, run `npm start`.
+7. In another bash terminal at root of project, run `npm run android`.
+8. You should now see the app running on your android with a page that says Potroast at the top.
+
+Instructions for firebase functions deploy:
+1. Run `npm install -g firebase-tools`.
+2. Edit source code in `<project root>/functions/src`.
+3. Run `firebase use --add`.  Select potroast.
+4. Run `firebase deploy`.
+
+
+
+
+
 # React Native Firebase Starter<a href="https://rnfirebase.io"><img align="left" src="http://i.imgur.com/01XQL0x.png"></a>
 
 [![Backers on Open Collective](https://opencollective.com/react-native-firebase/backers/badge.svg)](#backers)
